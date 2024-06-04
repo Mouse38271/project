@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 
 
 @Controller
-@RequestMapping ("/welcome")
+@RequestMapping ("/Home")
 public class HomeController {
     @GetMapping
     public String welcome(){
