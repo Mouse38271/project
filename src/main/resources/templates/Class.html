@@ -119,8 +119,8 @@
                     </svg>
                 </button>
             </div>
-            <div id="ContentField" class="px-24 w-full">
-                <div id="forumContent" class="tab-content gap-3 flex flex-col">
+            <div id="ContentField" class="w-full">
+                <div id="forumContent" class="tab-content gap-3 flex flex-col px-24">
                     <div class="w-full bg-purple-600 rounded-xl flex justify-start items-end p-6"
                         style="height: 240px; background-image: url('assets/Bg_Tropical.jpg'); background-size: cover; background-position: center;">
                         <div class="flex flex-col">
@@ -297,8 +297,7 @@
                                     </div>
                                 </div>
                                 <div class="w-full mx-auto">
-                                    <div
-                                        class="text-input-container flex justify-between items-center rounded-lg px-4 py-3 gap-3">
+                                    <div class="text-input-container flex justify-between items-center rounded-lg px-4 py-3 gap-3">
                                         <div class="flex justify-start items-center gap-3 w-full">
                                             <img src="https://lh3.googleusercontent.com/a/ACg8ocLEisGP6WknDfqRaVv6yJDbwyNjwAk6UIoS6zPqctlJQ6EsyFsy=s40-c"
                                                 alt="Profile" class="h-12 w-12 rounded-full">
@@ -461,95 +460,351 @@
                         </div>
                     </div>
                 </div>
-                <div id="nilaiContent" class="tab-content hidden">
-                    <!-- Isi konten untuk Nilai -->
-                    <p>Ini adalah konten untuk tab Nilai.</p>
+                <div id="nilaiContent" class="tab-content flex flex-col gap-1 hidden">
+                    <div id="Chip_Field" class="flex p-3 gap-3">
+                        <button id="Chip-1" class="chip px-3 py-2 bg-green-400 rounded-xl active">
+                            <p class="text-white font-medium">Tugas 1</p>
+                        </button>     
+                        <button id="Chip-2" class="chip px-3 py-2 border-black border rounded-xl">
+                            <p class="text-black font-medium">Tugas 2</p>
+                        </button>       
+                        <button id="Chip-3" class="chip px-3 py-2 border-black border rounded-xl">
+                            <p class="text-black font-medium">Tugas 3</p>
+                        </button>  
+                        <button id="Chip-4" class="chip px-3 py-2 border-black border rounded-xl">
+                            <p class="text-black font-medium">Tugas 4</p>
+                        </button>                 
+                    </div>
+                    <div id="Content_Field" class="p-3 w-full ">
+                        <div id="Content_Tugas1" class="content overflow-auto border-gray-300 border-2 rounded-xl shadow-lg">
+                            <table class="table-fixed w-full ">
+                                <thead class="text-left bg-gray-200">
+                                  <tr>
+                                    <th class="py-3 px-3">Nama Siswa</th>
+                                    <th class="py-3">Tanggal Upload</th>
+                                    <th class="py-3">File Upload</th>
+                                    <th class="py-3">Nilai</th>
+                                    <th class="py-3">Komentar</th>
+                                    <th class="py-3"></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="border hover:bg-gray-100">
+                                    <td class="flex gap-2 justify-start items-center py-3 px-3">
+                                        <div class="w-10 h-10 p-4 bg-black rounded-full"
+                                        style="background-image: url('Assets/User_Profile2.jpg'); background-size: cover; background-position: center ;"></div>
+                                        <p>Nama Siswa</p>
+                                        </div>
+                                    </td>
+                                    <td>2 Mei 2024, 13.00</td>
+                                    <td>Nama File</td>
+                                    <td>
+                                        <button class="openModalBtn bg-gray-300 py-2 px-3 rounded-lg">
+                                            <p><span>...</span>/100</p>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="border-gray-300 border-2 rounded-lg py-2 px-2">
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="bg-blue-500 px-5 py-2 text-white rounded-xl">Kirim</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border hover:bg-gray-100">
+                                    <td class="flex gap-2 justify-start items-center py-3 px-3">
+                                        <div class="w-10 h-10 p-4 bg-black rounded-full"
+                                        style="background-image: url('Assets/User_Profile2.jpg'); background-size: cover; background-position: center ;"></div>
+                                        <p>Nama Siswa</p>
+                                        </div>
+                                    </td>
+                                    <td>2 Mei 2024, 13.00</td>
+                                    <td>Nama File</td>
+                                    <td>
+                                        <button class="openModalBtn bg-gray-300 py-2 px-3 rounded-lg">
+                                            <p><span>...</span>/100</p>
+                                        </button>
+                                        <div id="modalNilai" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                                            <div class="bg-white p-5 rounded-lg shadow-lg w-1/3">
+                                                <div class="flex justify-between items-center mb-4">
+                                                    <h2 class="text-xl font-semibold">Masukkan Nilai</h2>
+                                                    <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+                                                </div>
+                                                <div class="flex gap-3 justify-center items-center">
+                                                    <input id="numberInput" type="number" class="border-gray-300 border-2 rounded-lg py-2 px-2 w-full" min="0" max="100">
+                                                    <div class="text-right h-full">
+                                                        <button id="closeModalBtnBottom" class="bg-blue-500 text-white px-4 py-2 rounded-lg h-full">Submit</button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="border-gray-300 border-2 rounded-lg py-2 px-2">
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="bg-blue-500 px-5 py-2 text-white rounded-xl">Kirim</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border hover:bg-gray-100">
+                                    <td class="flex gap-2 justify-start items-center py-3 px-3">
+                                        <div class="w-10 h-10 p-4 bg-black rounded-full"
+                                        style="background-image: url('Assets/User_Profile2.jpg'); background-size: cover; background-position: center ;"></div>
+                                        <p>Nama Siswa</p>
+                                        </div>
+                                    </td>
+                                    <td>2 Mei 2024, 13.00</td>
+                                    <td>Nama File</td>
+                                    <td>
+                                        <button class="openModalBtn bg-gray-300 py-2 px-3 rounded-lg">
+                                            <p><span>...</span>/100</p>
+                                        </button>
+                                        <div id="modalNilai" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                                            <div class="bg-white p-5 rounded-lg shadow-lg w-1/3">
+                                                <div class="flex justify-between items-center mb-4">
+                                                    <h2 class="text-xl font-semibold">Masukkan Nilai</h2>
+                                                    <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+                                                </div>
+                                                <div class="flex gap-3 justify-center items-center">
+                                                    <input id="numberInput" type="number" class="border-gray-300 border-2 rounded-lg py-2 px-2 w-full" min="0" max="100">
+                                                    <div class="text-right h-full">
+                                                        <button id="closeModalBtnBottom" class="bg-blue-500 text-white px-4 py-2 rounded-lg h-full">Submit</button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="border-gray-300 border-2 rounded-lg py-2 px-2">
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="bg-blue-500 px-5 py-2 text-white rounded-xl">Kirim</button>
+                                    </td>
+                                  </tr>
+                                  <tr class="border hover:bg-gray-100">
+                                    <td class="flex gap-2 justify-start items-center py-3 px-3">
+                                        <div class="w-10 h-10 p-4 bg-black rounded-full"
+                                        style="background-image: url('Assets/User_Profile2.jpg'); background-size: cover; background-position: center ;"></div>
+                                        <p>Nama Siswa</p>
+                                        </div>
+                                    </td>
+                                    <td>2 Mei 2024, 13.00</td>
+                                    <td>Nama File</td>
+                                    <td>
+                                        <button class="openModalBtn bg-gray-300 py-2 px-3 rounded-lg">
+                                            <p><span>...</span>/100</p>
+                                        </button>
+                                        <div id="modalNilai" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                                            <div class="bg-white p-5 rounded-lg shadow-lg w-1/3">
+                                                <div class="flex justify-between items-center mb-4">
+                                                    <h2 class="text-xl font-semibold">Masukkan Nilai</h2>
+                                                    <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">&times;</button>
+                                                </div>
+                                                <div class="flex gap-3 justify-center items-center">
+                                                    <input id="numberInput" type="number" class="border-gray-300 border-2 rounded-lg py-2 px-2 w-full" min="0" max="100">
+                                                    <div class="text-right h-full">
+                                                        <button id="closeModalBtnBottom" class="bg-blue-500 text-white px-4 py-2 rounded-lg h-full">Submit</button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="border-gray-300 border-2 rounded-lg py-2 px-2">
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="bg-blue-500 px-5 py-2 text-white rounded-xl">Kirim</button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="Content_Tugas2" class="content hidden">Content for Tugas 2</div>
+                        <div id="Content_Tugas3" class="content hidden">Content for Tugas 3</div>
+                        <div id="Content_Tugas4" class="content hidden">Content for Tugas 4</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </body>
 <script>
-    document.querySelectorAll('.text-input-container .input-field').forEach((inputField, index) => {
-        inputField.addEventListener('focus', () => {
-            document.querySelectorAll('.text-editor')[index].classList.remove('hidden');
-            document.querySelectorAll('.text-input-container')[index].classList.add('hidden');
+    document.addEventListener('DOMContentLoaded', () => {
+        const numberInput = document.getElementById('numberInput');
+
+        numberInput.addEventListener('input', () => {
+            let value = parseInt(numberInput.value, 10);
+
+            if (isNaN(value) || value < 0) {
+                numberInput.value = '';
+            } else if (value > 100) {
+                numberInput.value = 100;
+            }
         });
     });
 
-    function cancelPost(button) {
-        const editor = button.closest('.text-editor');
-        const index = Array.from(document.querySelectorAll('.text-editor')).indexOf(editor);
-        document.querySelectorAll('.text-editor')[index].classList.add('hidden');
-        document.querySelectorAll('.text-input-container')[index].classList.remove('hidden');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+    const openModalBtns = document.querySelectorAll('.openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const closeModalBtnBottom = document.getElementById('closeModalBtnBottom');
+    const modal = document.getElementById('modalNilai');
+    const numberInput = document.getElementById('numberInput');
+    let currentSpan = null;
 
-    function postAnnouncement(button) {
-        // Implement your post announcement logic here
-        alert('Announcement posted');
-    }
-
-    function formatText(command) {
-        document.execCommand(command, false, null);
-    }
-
-    function addGoogleDriveFile() {
-        // Implement your Google Drive file addition logic here
-        alert('Add Google Drive File');
-    }
-
-    function addYouTubeVideo() {
-        // Implement your YouTube video addition logic here
-        alert('Add YouTube Video');
-    }
-
-    function moveLine(tab) {
-        var forumTab = document.getElementById("forumTab");
-        var nilaiTab = document.getElementById("nilaiTab");
-
-        if (tab === 'forum') {
-            forumTab.classList.add("font-bold", "border-b-2", "border-blue-500");
-            forumTab.classList.remove("font-medium");
-            nilaiTab.classList.add("font-medium");
-            nilaiTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
-        } else if (tab === 'nilai') {
-            nilaiTab.classList.add("font-bold", "border-b-2", "border-blue-500");
-            nilaiTab.classList.remove("font-medium");
-            forumTab.classList.add("font-medium");
-            forumTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
-        }
-    }
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        moveLine('forum');
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            modal.classList.remove('hidden');
+            const span = event.currentTarget.querySelector('span');
+            currentSpan = span;
+            numberInput.value = span.textContent === '...' ? '' : span.textContent;
+        });
     });
 
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
 
-    function switchTab(tab) {
-        var forumTab = document.getElementById("forumTab");
-        var nilaiTab = document.getElementById("nilaiTab");
-        var forumContent = document.getElementById("forumContent");
-        var nilaiContent = document.getElementById("nilaiContent");
+    closeModalBtnBottom.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
 
-        if (tab === 'forum') {
-            forumTab.classList.add("font-bold", "border-b-2", "border-blue-500");
-            forumTab.classList.remove("font-medium");
-            nilaiTab.classList.add("font-medium");
-            nilaiTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
-
-            forumContent.classList.remove("hidden");
-            nilaiContent.classList.add("hidden");
-        } else if (tab === 'nilai') {
-            nilaiTab.classList.add("font-bold", "border-b-2", "border-blue-500");
-            nilaiTab.classList.remove("font-medium");
-            forumTab.classList.add("font-medium");
-            forumTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
-
-            nilaiContent.classList.remove("hidden");
-            forumContent.classList.add("hidden");
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
         }
-    }
-</script>
+    });
 
+    numberInput.addEventListener('input', () => {
+        let value = parseInt(numberInput.value, 10);
+        if (isNaN(value) || value < 0) {
+            numberInput.value = '';
+            currentSpan.textContent = '...';
+        } else if (value > 100) {
+            numberInput.value = 100;
+            currentSpan.textContent = '100';
+        } else {
+            currentSpan.textContent = value;
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const chips = document.querySelectorAll('#Chip_Field .chip');
+    const contents = document.querySelectorAll('#Content_Field .content');
+
+    chips.forEach((chip, index) => {
+        chip.addEventListener('click', () => {
+            // Remove active class from all chips
+            chips.forEach(c => {
+                c.classList.remove('bg-green-400', 'text-white');
+                c.classList.add('border', 'border-black', 'text-black');
+                const chipText = c.querySelector('p');
+                chipText.classList.remove('text-white');
+                chipText.classList.add('text-black');
+            });
+
+            // Add active class to the clicked chip
+            chip.classList.remove('border', 'border-black', 'text-black');
+            chip.classList.add('bg-green-400', 'text-white');
+            const chipText = chip.querySelector('p');
+            chipText.classList.remove('text-black');
+            chipText.classList.add('text-white');
+
+            // Show the corresponding content and hide others
+            contents.forEach((content, contentIndex) => {
+                if (index === contentIndex) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+
+    document.querySelectorAll('.text-input-container .input-field').forEach((inputField, index) => {
+    inputField.addEventListener('focus', () => {
+        document.querySelectorAll('.text-editor')[index].classList.remove('hidden');
+        document.querySelectorAll('.text-input-container')[index].classList.add('hidden');
+    });
+});
+
+function cancelPost(button) {
+    const editor = button.closest('.text-editor');
+    const index = Array.from(document.querySelectorAll('.text-editor')).indexOf(editor);
+    document.querySelectorAll('.text-editor')[index].classList.add('hidden');
+    document.querySelectorAll('.text-input-container')[index].classList.remove('hidden');
+}
+
+function postAnnouncement(button) {
+    // Implement your post announcement logic here
+    alert('Announcement posted');
+}
+
+function formatText(command) {
+    document.execCommand(command, false, null);
+}
+
+function addGoogleDriveFile() {
+    // Implement your Google Drive file addition logic here
+    alert('Add Google Drive File');
+}
+
+function addYouTubeVideo() {
+    // Implement your YouTube video addition logic here
+    alert('Add YouTube Video');
+}
+
+function moveLine(tab) {
+    var forumTab = document.getElementById("forumTab");
+    var nilaiTab = document.getElementById("nilaiTab");
+
+    if (tab === 'forum') {
+        forumTab.classList.add("font-bold", "border-b-2", "border-blue-500");
+        forumTab.classList.remove("font-medium");
+        nilaiTab.classList.add("font-medium");
+        nilaiTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
+    } else if (tab === 'nilai') {
+        nilaiTab.classList.add("font-bold", "border-b-2", "border-blue-500");
+        nilaiTab.classList.remove("font-medium");
+        forumTab.classList.add("font-medium");
+        forumTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    moveLine('forum');
+});
+
+
+function switchTab(tab) {
+    var forumTab = document.getElementById("forumTab");
+    var nilaiTab = document.getElementById("nilaiTab");
+    var forumContent = document.getElementById("forumContent");
+    var nilaiContent = document.getElementById("nilaiContent");
+
+    if (tab === 'forum') {
+        forumTab.classList.add("font-bold", "border-b-2", "border-blue-500");
+        forumTab.classList.remove("font-medium");
+        nilaiTab.classList.add("font-medium");
+        nilaiTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
+
+        forumContent.classList.remove("hidden");
+        nilaiContent.classList.add("hidden");
+    } else if (tab === 'nilai') {
+        nilaiTab.classList.add("font-bold", "border-b-2", "border-blue-500");
+        nilaiTab.classList.remove("font-medium");
+        forumTab.classList.add("font-medium");
+        forumTab.classList.remove("font-bold", "border-b-2", "border-blue-500");
+
+        nilaiContent.classList.remove("hidden");
+        forumContent.classList.add("hidden");
+    }
+}
+</script>
+    
 </html>
