@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-container {
+            background-color: #ffffff;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+        }
+        .registration-container table {
+            width: 100%;
+        }
+        .registration-container td {
+            padding: 15px 0;
+        }
+        .registration-container input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .registration-container .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .registration-container .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .registration-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-link a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>User Registration - Sign Up</h2>
+        <form th:action="@{/process_register}" method="post" th:object="${user}">
+            <table>
+                <tr>
+                    <td><label for="email">E-mail</label></td>
+                    <td><input type="email" id="email" th:field="*{email}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input type="password" id="password" th:field="*{password}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="firstName">First Name</label></td>
+                    <td><input type="text" id="firstName" th:field="*{firstName}" required></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name</label></td>
+                    <td><input type="text" id="lastName" th:field="*{lastName}" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" class="submit-btn">Sign Up</button></td>
+                </tr>
+            </table>
+        </form>
+        <div class="login-link">
+            <p>Already registered? <a th:href="@{/login}">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>

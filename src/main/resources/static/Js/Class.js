@@ -12,14 +12,40 @@ function cancelPost(button) {
     document.querySelectorAll('.text-input-container')[index].classList.remove('hidden');
 }
 
-function postAnnouncement(button) {
+function postAnnouncement() {
     // Implement your post announcement logic here
     alert('Announcement posted');
 }
 
+// Updated `formatText` function without `execCommand`
 function formatText(command) {
-    document.execCommand(command, false, null);
+    const selection = window.getSelection();
+    if (!selection.rangeCount) return;
+    const range = selection.getRangeAt(0);
+
+    const span = document.createElement('span');
+    switch (command) {
+        case 'bold':
+            span.style.fontWeight = 'bold';
+            break;
+        case 'italic':
+            span.style.fontStyle = 'italic';
+            break;
+        case 'underline':
+            span.style.textDecoration = 'underline';
+            break;
+        default:
+            console.warn('Unknown command');
+            return;
+    }
+    
+    range.surroundContents(span);
 }
+
+// Example usage of `formatText`
+document.getElementById('boldButton').addEventListener('click', function() {
+    formatText('bold');
+});
 
 function addGoogleDriveFile() {
     // Implement your Google Drive file addition logic here
@@ -48,11 +74,9 @@ function moveLine(tab) {
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
     moveLine('forum');
 });
-
 
 function switchTab(tab) {
     var forumTab = document.getElementById("forumTab");

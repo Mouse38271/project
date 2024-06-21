@@ -10,6 +10,6 @@ import org.springframework.stereotype.Controller;
 public class ClassController {
     @GetMapping
     public String welcome(){
-        return "Class";
+        return "class";
     }
 }
