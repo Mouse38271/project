@@ -17,10 +17,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-white h-screen flex flex-col">
+<body class="bg-white flex flex-col">
     <div id="navContainer"></div>
-    <section id="Content" class="flex">
-        <div id="Sidebar" class="flex flex-col py-2 border-r h-screen border-black px-2 gap-3" style="width: 400px;">
+    <section id="Content" class="flex h-screen">
+        <div id="Sidebar" class="flex flex-col py-2 border-r border-black px-2 gap-3" style="width: 400px;">
             <div id="Beranda" class="flex gap-4 justify-start items-center px-4 py-2 hover:bg-gray-200 rounded-xl" onclick="window.location.href='index'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -73,7 +73,7 @@
                 <p class="font-medium">Settings</p>
             </div>
         </div>
-        <div id="MainContent" class="w-full flex flex-col gap-3">
+        <div id="MainContent" class="w-full h-full flex flex-col gap-3 pb-5">
             <div id="TabField" class="flex justify-between border-b border-black px-3">
                 <div class="flex gap-3 relative">
                     <div id="forumTab" class="p-3 font-bold border-b-2 border-blue-500 cursor-pointer"
@@ -91,7 +91,7 @@
                     </svg>
                 </button>
             </div>
-            <div id="ContentField" class="w-full">
+            <div id="ContentField" class="w-full h-full">
                 <div id="forumContent" class="tab-content gap-3 flex flex-col px-24">
                     <div class="w-full bg-purple-600 rounded-xl flex justify-start items-end p-6"
                         style="height: 240px; background-image: url('assets/Bg_Tropical.jpg'); background-size: cover; background-position: center;">
@@ -340,6 +340,41 @@
                                     </button>
                                 </div>
                                 <h1 class="text-2xl font-medium">ibqhu5b</h1>
+                            </div>
+                            <div class="flex flex-col border rounded-lg max-h-fit p-2 gap-3">
+                                <p class="text-lg font-medium">Daftar Tugas</p>
+                                <div id="TaskList" class="flex flex-col gap-3">
+                                    <button id="Task" class="flex gap-2 justify-start items-center border p-2 rounded-lg hover:bg-gray-200">
+                                        <div class="p-2 bg-blue-500 max-w-fit max-h-fit rounded-lg">
+                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#ffffff"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /></svg>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <p class="text-base font-medium">Nama Tugas</p>
+                                            <p class="text-sm">Deadline : <span>2 Mei</span></p>
+                                        </div>
+                                    </button>
+                                    <button id="Task" class="flex gap-2 justify-start items-center border p-2 rounded-lg hover:bg-gray-200">
+                                        <div class="p-2 bg-blue-500 max-w-fit max-h-fit rounded-lg">
+                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#ffffff"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /></svg>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <p class="text-base font-medium">Nama Tugas</p>
+                                            <p class="text-sm">Deadline : <span>2 Mei</span></p>
+                                        </div>
+                                    </button>
+                                    <button id="Task" class="flex gap-2 justify-start items-center border p-2 rounded-lg hover:bg-gray-200">
+                                        <div class="p-2 bg-blue-500 max-w-fit max-h-fit rounded-lg">
+                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#ffffff"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" /></svg>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <p class="text-base font-medium">Nama Tugas</p>
+                                            <p class="text-sm">Deadline : <span>2 Mei</span></p>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                             <div id="People" class="flex flex-col gap-6 border rounded-xl p-3">
                                 <div id="Teacher" class="flex flex-col gap-3">
