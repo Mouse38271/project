@@ -38,4 +38,10 @@ public class AppController {
     public String viewUsersList() {
         return "users"; // Pastikan users.html ada di templates
     }
+
+    // Redirect ke home setelah login berhasil
+    @PostMapping("/login")
+    public String login() {
+        return "redirect:/index";
+    }
 }
