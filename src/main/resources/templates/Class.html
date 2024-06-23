@@ -18,39 +18,10 @@
 </head>
 
 <body class="bg-white h-screen flex flex-col">
-    <nav class="flex w- justify-between items-center py-3 px-8 border-b border-black">
-        <div class="flex gap-4 justify-between items-center">
-            <button type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 6l16 0" />
-                    <path d="M4 12l16 0" />
-                    <path d="M4 18l16 0" />
-                </svg>
-            </button>
-            <h1 class="font-semibold text-2xl">Name</h1>
-        </div>
-        <div class="flex gap-4">
-            <button type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-bell">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                </svg>
-            </button>
-            <div class="flex gap-3 justify-between items-center" id="Account">
-                <p>Nama Akun</p>
-                <img src="assets/user.png" class="w-10 h-10">
-            </div>
-        </div>
-    </nav>
+    <div id="navContainer"></div>
     <section id="Content" class="flex">
-        <div id="Sidebar" class="flex flex-col py-2 border-r h-screen border-black w-96 px-2 gap-3">
-            <div id="Beranda" class="flex gap-4 justify-start items-center px-4 py-2 bg-gray-300 rounded-xl">
+        <div id="Sidebar" class="flex flex-col py-2 border-r h-screen border-black px-2 gap-3" style="width: 400px;">
+            <div id="Beranda" class="flex gap-4 justify-start items-center px-4 py-2 hover:bg-gray-200 rounded-xl" onclick="window.location.href='index'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="icon icon-tabler icons-tabler-outline icon-tabler-home">
@@ -83,14 +54,7 @@
                 </svg>
                 <p class="font-medium">My Course</p>
             </div>
-            <div id="class" class="flex gap-4 justify-start items-center px-4 py-2 hover:bg-gray-200 rounded-xl">
-                <img src="" class="w-7 h-7 bg-gray-700 rounded-full">
-                <div class="flex flex-col gap-1">
-                    <p class="font-medium text-sm">Matematika Lanjut</p>
-                    <p class="text-sm">My Course</p>
-                </div>
-            </div>
-            <div id="class" class="flex gap-4 justify-start items-center px-4 py-2 hover:bg-gray-200 rounded-xl">
+            <div id="class" class="flex gap-4 justify-start items-center px-4 py-2 bg-gray-300 rounded-xl">
                 <img src="" class="w-7 h-7 bg-gray-700 rounded-full">
                 <div class="flex flex-col gap-1">
                     <p class="font-medium text-sm">Matematika Lanjut</p>
@@ -528,48 +492,18 @@
                                         <input id="ValueInput" type="number" class="border-gray-300 border-2 rounded-lg py-2 px-2 w-full" min="0" max="100">
                                     </div>
                                 </div>
-                                <button class="w-full border-2 border-gray-300 rounded-lg max-h-fit flex flex-col justify-center items-center p-12">
-                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-upload"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 9l5 -5l5 5" /><path d="M12 4l0 12" /></svg>
+                                <div class="w-full">
+                                    <button id="uploadButton" class="w-full border-2 border-gray-300 rounded-lg max-h-fit flex flex-col justify-center items-center p-12 bg-gray-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-upload">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                                            <path d="M7 9l5 -5l5 5" />
+                                            <path d="M12 4v12" />
+                                        </svg>
                                         <p>Klik atau seret file disini</p>
-                                </button>
-                                <div id="UploadedFile" class="flex gap-3 overflow-y-hidden overflow-x-auto">
-                                    <div id="File" class="flex gap-2 border-2 border-gray-300 rounded-lg justify-between items-center px-3 py-2 max-h-fit">
-                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-upload"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M12 11v6" /><path d="M9.5 13.5l2.5 -2.5l2.5 2.5" /></svg>
-                                        <div class="flex flex-col gap-1">
-                                            <p id="FileName" class="text-sm">Dokumen.Doc</p>
-                                            <p id="FileType" class="text-xs">Word</p>
-                                        </div>
-                                        <button>
-                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
-                                        </button>    
-                                    </div>
-                                    <div id="File" class="flex gap-2 border-2 border-gray-300 rounded-lg justify-between items-center px-3 py-2 max-h-fit">
-                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-upload"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M12 11v6" /><path d="M9.5 13.5l2.5 -2.5l2.5 2.5" /></svg>
-                                        <div class="flex flex-col gap-1">
-                                            <p id="FileName" class="text-sm">Dokumen.Doc</p>
-                                            <p id="FileType" class="text-xs">Word</p>
-                                        </div>
-                                        <button>
-                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
-                                        </button>    
-                                    </div>
-                                    <div id="File" class="flex gap-2 border-2 border-gray-300 rounded-lg justify-between items-center px-3 py-2 max-h-fit">
-                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-upload"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M12 11v6" /><path d="M9.5 13.5l2.5 -2.5l2.5 2.5" /></svg>
-                                        <div class="flex flex-col gap-1">
-                                            <p id="FileName" class="text-sm">Dokumen.Doc</p>
-                                            <p id="FileType" class="text-xs">Word</p>
-                                        </div>
-                                        <button>
-                                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
-                                        </button>    
-                                    </div>
+                                    </button>
+                                    <input id="fileInput" type="file" class="hidden">
+                                    <div id="UploadedFile" class="flex gap-3 overflow-y-hidden overflow-x-auto mt-4"></div>
                                 </div>
                                 <button class="bg-blue-500 text-white font-medium py-4 rounded-lg">Upload Tugas</button>
                             </div>
@@ -747,6 +681,79 @@
     </section>
 </body>
 <script>
+
+const uploadButton = document.getElementById('uploadButton');
+        const fileInput = document.getElementById('fileInput');
+        const uploadedFileContainer = document.getElementById('UploadedFile');
+
+        uploadButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        uploadButton.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadButton.classList.add('bg-gray-200');
+        });
+
+        uploadButton.addEventListener('dragleave', () => {
+            uploadButton.classList.remove('bg-gray-200');
+        });
+
+        uploadButton.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadButton.classList.remove('bg-gray-200');
+
+            if (event.dataTransfer.files.length > 0) {
+                fileInput.files = event.dataTransfer.files;
+                handleFileUpload(fileInput.files);
+            }
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            if (event.target.files.length > 0) {
+                handleFileUpload(event.target.files);
+            }
+        });
+
+        function handleFileUpload(files) {
+            uploadedFileContainer.innerHTML = ''; // Clear the container before adding new files
+            Array.from(files).forEach(file => {
+                const fileDiv = document.createElement('div');
+                fileDiv.classList.add('flex', 'gap-2', 'border-2', 'border-gray-300', 'rounded-lg', 'justify-between', 'items-center', 'px-3', 'py-2', 'max-h-fit');
+
+                const fileIcon = document.createElement('svg');
+                fileIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                fileIcon.setAttribute('width', '28');
+                fileIcon.setAttribute('height', '28');
+                fileIcon.setAttribute('viewBox', '0 0 24 24');
+                fileIcon.setAttribute('fill', 'none');
+                fileIcon.setAttribute('stroke', 'currentColor');
+                fileIcon.setAttribute('stroke-width', '2');
+                fileIcon.setAttribute('stroke-linecap', 'round');
+                fileIcon.setAttribute('stroke-linejoin', 'round');
+                fileIcon.classList.add('icon', 'icon-tabler', 'icons-tabler-outline', 'icon-tabler-file-upload');
+                fileIcon.innerHTML = '<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 11v6"/><path d="M9.5 13.5l2.5 -2.5l2.5 2.5"/>';
+
+                const fileInfo = document.createElement('div');
+                fileInfo.classList.add('flex', 'flex-col', 'gap-1');
+                fileInfo.innerHTML = `<p class="text-sm">${file.name}</p><p class="text-xs">${file.type || 'Unknown'}</p>`;
+
+                const removeButton = document.createElement('button');
+                removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>';
+                removeButton.addEventListener('click', () => {
+                    uploadedFileContainer.removeChild(fileDiv);
+                });
+
+                fileDiv.appendChild(fileIcon);
+                fileDiv.appendChild(fileInfo);
+                fileDiv.appendChild(removeButton);
+                uploadedFileContainer.appendChild(fileDiv);
+            });
+
+            // TODO: Implement the actual file upload logic here.
+            console.log('Files ready for upload:', files);
+        }
+    
     document.addEventListener('DOMContentLoaded', () => {
         const numberInput = document.getElementById('numberInput');
 
@@ -966,5 +973,6 @@ function switchTab(tab) {
     }
 }
 </script>
+<script src="/Js/Nav.js"></script>
     
 </html>
