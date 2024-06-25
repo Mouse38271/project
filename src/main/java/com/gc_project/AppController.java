@@ -39,6 +39,11 @@ public class AppController {
         return "users"; // Pastikan users.html ada di templates
     }
 
+    @GetMapping("TaskPage")
+    public String viewTaskPage() {
+        return "TaskPage"; 
+    }
+
     // Redirect ke home setelah login berhasil
     @PostMapping("/login")
     public String login() {
