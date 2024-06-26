@@ -11,16 +11,6 @@ public class AppController {
 
     @Autowired
     private UserRepository repo;
-    
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "login"; // Pastikan login.html ada di templates
-    }
-
-    @GetMapping("/home")
-    public String viewHomePage() {
-        return "index"; // Pastikan index.html ada di templates
-    }
 
     @GetMapping("/register")
     public String showSignUpForm(Model model) {
@@ -37,16 +27,5 @@ public class AppController {
     @GetMapping("/list_users")
     public String viewUsersList() {
         return "users"; // Pastikan users.html ada di templates
-    }
-
-    @GetMapping("TaskPage")
-    public String viewTaskPage() {
-        return "TaskPage"; 
-    }
-
-    // Redirect ke home setelah login berhasil
-    @PostMapping("/login")
-    public String login() {
-        return "redirect:/index";
     }
 }

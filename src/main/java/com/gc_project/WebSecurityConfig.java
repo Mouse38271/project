@@ -32,20 +32,23 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/list_users").authenticated()
+            .authorizeHttpRequests((authorize) -> authorize
+                .requestMatchers("/Home").authenticated() // Allow access to home after authentication
                 .anyRequest().permitAll()
             )
             .formLogin((form) -> form
-                .loginPage("/login")
+                .loginPage("/Login")
                 .usernameParameter("email")
-                .defaultSuccessUrl("/list_users")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/Home", true) // Redirect to home after login
                 .permitAll()
             )
             .logout((logout) -> logout
-                .logoutSuccessUrl("/")
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
                 .permitAll()
-            );
+            )
+            .csrf((csrf) -> csrf.disable()); // Disable CSRF protection
 
         return http.build();
     }
