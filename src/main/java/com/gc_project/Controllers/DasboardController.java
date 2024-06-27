@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DasboardController {
     @GetMapping
     public String viewHomePage(){
-        return "Home";
+        return "home";
     }
 }

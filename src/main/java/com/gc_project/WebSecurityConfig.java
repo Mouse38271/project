@@ -33,14 +33,14 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers("/Home").authenticated() // Allow access to home after authentication
+                .requestMatchers("/home").authenticated() // Allow access to home after authentication
                 .anyRequest().permitAll()
             )
             .formLogin((form) -> form
                 .loginPage("/Login")
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/Home", true) // Redirect to home after login
+                .defaultSuccessUrl("/home", true) // Redirect to home after login
                 .permitAll()
             )
             .logout((logout) -> logout
