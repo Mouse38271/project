@@ -59,33 +59,31 @@
         </button>
         <div class="flex flex-col">
           <div class="flex gap-3 justify-between items-center" id="Account">
-            <p>Nama Akun</p>
+            <span th:text="${userLogin}"></span>
             <img
               src="assets/user.png"
               class="w-10 h-10 cursor-pointer"
               id="accountImage"
             />
           </div>
-          <div class="relative">
-            <div
-              id="dropdownMenu"
-              class="hidden bg-gray-100 p-2 w-full rounded-lg absolute right-0 mt-2"
-            >
-              <button
-                class="p-2 bg-red-500 text-white font-medium w-full rounded-lg"
-              >
-                Log out
-              </button>
-            </div>
+		  <div class="relative">
+		         <div id="dropdownMenu" class="hidden bg-gray-100 p-2 w-full rounded-lg absolute right-0 mt-2">
+		             <button class="p-2 bg-red-500 text-white font-medium w-full rounded-lg" onclick="logout()">
+		                 Log out
+		             </button>
+		         </div>
+		     </div>
+
+		     <script>
+		         function logout() {
+		           
+		             window.location.href = '/login';
+		         }
+		     </script>
           </div>
         </div>
       </div>
     </nav>
-    <div>
-      <h3><a th:href="@{/List_users}"></a></h3>
-      <h3><a th:href="@{/register}"></a></h3>
-      <h3><a th:href="@{/Login}"></a></h3>
-    </div>
     <section id="Content" class="flex">
       <div
         id="Sidebar"
@@ -404,6 +402,36 @@
             </button>
           </div>
         </div>
+		<script defer>
+		      document.addEventListener('DOMContentLoaded', function () {
+		        document.getElementById('buatKelasModalBtn').addEventListener('click', function () {
+		          const className = document.getElementById('nameInput').value;
+		          const subjectName = document.getElementById('subjectInput').value;
+		          const data = { className: className, subjectName: subjectName };
+
+		          fetch('/api/classes/create', {
+		            method: 'POST',
+		            headers: {
+		              'Content-Type': 'application/json',
+		            },
+		            body: JSON.stringify(data),
+		          })
+		          .then(response => response.json())
+		          .then(data => {
+		            if (data.classCode) {
+		              alert(`Class created successfully! Class Code: ${data.classCode}`);
+		              document.getElementById('modalMakeClass').classList.add('hidden');
+		            } else {
+		              alert('Failed to create class.');
+		            }
+		          })
+		          .catch(error => {
+		            console.error('Error:', error);
+		            alert('Failed to create class.');
+		          });
+		        });
+		      });
+		    </script>
         <div
           class="w-full flex flex-col gap-3 border border-gray-600 rounded-xl p-3"
         >
